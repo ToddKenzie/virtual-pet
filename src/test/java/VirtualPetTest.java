@@ -1,11 +1,13 @@
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 public class VirtualPetTest {
 
 	VirtualPet underTest = new VirtualPet();
+	VirtualPet testEeyore = new VirtualEeyore();
 	
 	
 	
@@ -77,6 +79,49 @@ public class VirtualPetTest {
 		underTest.takeToVirtualVet();
 		int sickness = underTest.getSickness();
 		assertThat(sickness, is(0));
+	}
+	
+	@Test
+	public void checkThatAllValuesIncreaseUponTick() {
+		underTest.tick();
+		int hunger = underTest.getHungerLevel();
+		int thirst = underTest.getThirstLevel();
+		int boredom = underTest.getBoredom();
+		int sickness = underTest.getSickness();
+
+		assertTrue(hunger > 25);
+		assertTrue(thirst > 25);
+		assertTrue(boredom > 25);
+		assertTrue(sickness > 25);
+	}
+	
+	@Test
+	public void decreaseEeyoreHungerFrom15To10withFeed() {
+		testEeyore.feed();
+		int hunger = testEeyore.getHungerLevel();
+		assertThat(hunger, is(10));
+	}
+	
+	@Test
+	public void decreaseEeyoreBoredomFrom40To33withPlay() {
+		testEeyore.play();
+		int boredom = testEeyore.getBoredom();
+		assertThat(boredom, is(33));
+	}
+	
+	@Test
+	public void checkThat1TickPassedInGame() {
+		underTest.tick();
+		int ticks = underTest.getTicksPassed();
+		assertThat(ticks, is(1));
+	}
+	
+	@Test
+	public void checkThat2TickPassedInGameForEeyore() {
+		testEeyore.tick();
+		testEeyore.tick();
+		int ticks = testEeyore.getTicksPassed();
+		assertThat(ticks, is(2));
 	}
 	
 }

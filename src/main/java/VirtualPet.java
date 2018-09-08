@@ -1,15 +1,22 @@
 
 public class VirtualPet {
 
-	private int hunger;
-	private int thirst;
-	private int boredom;
-	private int sickness;
+	protected int hunger;
+	protected int thirst;
+	protected int boredom;
+	protected int sickness;
+	protected int ticksPassed;
 	
-	private final int foodValue = 15;
-	private final int waterValue = 10;
-	private final int playValue = 10;
-	private final int vetValue = 20;
+	protected int foodValue = 15;
+	protected int waterValue = 10;
+	protected int playValue = 10;
+	protected int vetValue = 20;
+	
+	protected int hungerIncreasePerTickMax = 10;
+	protected int thirstIncreasePerTickMax = 10;
+	protected int boredomIncreasePerTickMax = 10;
+	protected int sicknessIncreasePerTickMax = 10;
+			
 
 	public int getHungerLevel() {
 		return hunger;
@@ -27,12 +34,17 @@ public class VirtualPet {
 		return sickness;
 	}
 	
+	public int getTicksPassed() {
+		return ticksPassed;
+	}
+	
 	
 	public VirtualPet() {
 		this.hunger = 25;
 		this.thirst = 25;
 		this.boredom = 25;
 		this.sickness = 25;
+		this.ticksPassed = 0;
 		
 	}
 
@@ -66,6 +78,14 @@ public class VirtualPet {
 		} else {
 			sickness -= vetValue;
 		}
+	}
+
+	public void tick() {
+		hunger += (int) (Math.random() * hungerIncreasePerTickMax + 1);
+		thirst += (int) (Math.random() * thirstIncreasePerTickMax + 1);
+		boredom += (int) (Math.random() * boredomIncreasePerTickMax + 1);
+		sickness += (int) (Math.random() * sicknessIncreasePerTickMax + 1);
+		ticksPassed++;
 	}
 
 
