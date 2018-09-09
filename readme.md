@@ -8,12 +8,24 @@ Create a virtual pet with multiple attributes.  Main method will cause a tick() 
 
 ###	Attributes for the virtual pet
 
-Attributes will have various ratings.  Rating of 0 means perfectly fine, whereas a high rating will indicate an issue.  Too high of a rating will cause potential misbehaviors with the pet, or even leaving the user / death.
+Attributes will have various ratings.  Ratings will be displayed to the user as an adjective, telling the user the well-being of the pet.  The pet will leave if any attribute gets out of control.
 
 *	Hunger
 *	Thirst
 *	Sickness
 *	Boredom
+
+
+### Additions to the Project that may differ from others
+
+*	There are a variety of pets, utilizing an abstract base.
+	*	Each pet has their own ascii display
+		* Though the "Simple" pet has mulitple ones.  It will be chosen at runtime
+	*	Each pet has their own starting attribute values and issues
+*	While all attributes have an int value, user will only see adjectives and have to make appropriate decisions to keep care of their pet
+*	Pet can be ignored.  It is not advised.
+
+
 
 ###	Rubric Items that are scored in the process (must be present)
 
