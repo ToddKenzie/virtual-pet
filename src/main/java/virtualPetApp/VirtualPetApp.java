@@ -40,7 +40,8 @@ public class VirtualPetApp {
 			System.out.println("Press 2 to give your pet water.");
 			System.out.println("Press 3 to play with your pet.");
 			System.out.println("Press 4 to bring your pet to the Virtual Vet.");
-			System.out.println("Press 5 to quit.");
+			System.out.println("Press 5 to look at your pet again.");
+			System.out.println("Press Q to quit.");
 
 			String menuChoice = input.nextLine();
 			String previousAction = "";
@@ -61,6 +62,8 @@ public class VirtualPetApp {
 				virtualPet.takeToVirtualVet();
 				previousAction = "takeToVirtualVet";
 			} else if (menuChoice.equals("5")) {
+				System.out.println(virtualPet.displayPet());
+			} else if (menuChoice.equalsIgnoreCase("Q")) {
 				System.out.println("We're sorry to see you go");
 				System.out.println("You had your pet for " + virtualPet.getTicksPassed() + " virtual days.");
 				input.close();
@@ -69,11 +72,11 @@ public class VirtualPetApp {
 				System.out.println("That was an invalid command");
 			}
 
-			System.out.println("Time passes");
-			virtualPet.tick(previousAction);
-			if (virtualPet.getTicksPassed() % 3 == 0) {
-				System.out.println(virtualPet.displayPet());
+			if (!previousAction.equals("")) {
+				System.out.println("Time passes");
+				virtualPet.tick(previousAction);
 			}
+			
 		}
 
 	}
