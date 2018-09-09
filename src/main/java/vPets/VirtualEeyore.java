@@ -8,16 +8,23 @@ public class VirtualEeyore extends VirtualPet {
 		boredom = 40;
 		sickness = 20;
 	
-		foodValue = 5;
-		waterValue = 5;
+		foodValue = 10;
+		waterValue = 8;
 		playValue = 7;
-		vetValue = 5;
+		vetValue = 15;
 		
 		hungerIncreasePerTickMax = 5;
 		thirstIncreasePerTickMax = 5;
 		boredomIncreasePerTickMax = 10;
 		sicknessIncreasePerTickMax = 5;
-		
+	}
+	
+	public String displayPet() {
+		String display = " ,~~--~~-.\r\n" + 
+				"+      | |\\\r\n" + 
+				"|| |~ |`,/-\\\r\n" + 
+				"*\\_) \\_) `-'";
+		return display;
 	}
 		
 	

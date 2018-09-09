@@ -46,8 +46,9 @@ public abstract class VirtualPet {
 		this.boredom = 25;
 		this.sickness = 25;
 		this.ticksPassed = 0;
-		
 	}
+	
+	public abstract String displayPet();
 
 	public void feed() {
 		if (hunger < foodValue) {

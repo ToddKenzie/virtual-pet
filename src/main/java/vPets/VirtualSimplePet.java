@@ -18,6 +18,16 @@ public class VirtualSimplePet extends VirtualPet{
 		thirstIncreasePerTickMax = 6;
 		boredomIncreasePerTickMax = 6;
 		sicknessIncreasePerTickMax = 7;
-		
+	}
+	
+	public String displayPet() {
+		String display = "  .^._.^.\r\n" + 
+				"  | . . |\r\n" + 
+				" (  ---  )\r\n" + 
+				" .'     '.\r\n" + 
+				" |/     \\|\r\n" + 
+				"  \\ /-\\ /\r\n" + 
+				"   V   V";
+		return display;
 	}
 }

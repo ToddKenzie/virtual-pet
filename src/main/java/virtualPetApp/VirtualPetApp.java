@@ -15,6 +15,7 @@ public class VirtualPetApp {
 		System.out.println("We have a variety of pets for you");
 		System.out.println("Enter \'Pooh\' for a PoohBear pet");
 		System.out.println("Enter \'Eeyore\' for an EeyoreDonkey pet");
+		System.out.println("Enter \'Piglet\' for a PigletPig pet");
 		System.out.println("Or just \'simple\' for a Simple pet:");
 
 		String petChoice = input.nextLine();
@@ -22,8 +23,9 @@ public class VirtualPetApp {
 		VirtualPet virtualPet = vPetStore.purchasePet(petChoice);
 
 		System.out.println("Thanks for choosing your new pet.");
+		System.out.println(virtualPet.displayPet());
 		System.out.println("Pets are happier when they have low stats. They are unhappy with high stats.");
-		System.out.println("If their stats get too high, they may leave you, or worse!");
+		System.out.println("If their stats get too high, they may leave you, or worse!\n");
 
 		while (true) {
 
@@ -31,7 +33,7 @@ public class VirtualPetApp {
 			System.out.println("Hunger: " + virtualPet.getHungerLevel());
 			System.out.println("Thirst: " + virtualPet.getThirstLevel());
 			System.out.println("Boredom: " + virtualPet.getBoredom());
-			System.out.println("Sickness: " + virtualPet.getSickness());
+			System.out.println("Sickness: " + virtualPet.getSickness() + "\n");
 
 			System.out.println("What would you like to do with your pet?");
 			System.out.println("Press 1 to fed your pet.");
@@ -69,6 +71,9 @@ public class VirtualPetApp {
 
 			System.out.println("Time passes");
 			virtualPet.tick(previousAction);
+			if (virtualPet.getTicksPassed() % 3 == 0) {
+				System.out.println(virtualPet.displayPet());
+			}
 		}
 
 	}
