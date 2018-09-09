@@ -1,5 +1,6 @@
+package vPets;
 
-public class VirtualPet {
+public abstract class VirtualPet {
 
 	protected int hunger;
 	protected int thirst;

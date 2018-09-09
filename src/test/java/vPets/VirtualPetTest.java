@@ -1,12 +1,17 @@
+package vPets;
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import vPets.VirtualEeyore;
+import vPets.VirtualPet;
+
 public class VirtualPetTest {
 
-	VirtualPet underTest = new VirtualPet();
+	VirtualPet underTest = new VirtualSimplePet();
 	VirtualPet testEeyore = new VirtualEeyore();
 	
 	
@@ -122,6 +127,20 @@ public class VirtualPetTest {
 		testEeyore.tick();
 		int ticks = testEeyore.getTicksPassed();
 		assertThat(ticks, is(2));
+	}
+	
+	@Test
+	public void generateEeyoreFromStore() {
+		VPetStore testStore = new VPetStore();
+		VirtualPet newPet = testStore.purchasePet("Eeyore");
+		assertThat(newPet, instanceOf(VirtualEeyore.class));
+	}
+	
+	@Test
+	public void generatePoohFromStore() {
+		VPetStore testStore = new VPetStore();
+		VirtualPet newPet = testStore.purchasePet("Pooh");
+		assertThat(newPet, instanceOf(VirtualPooh.class));
 	}
 	
 }
