@@ -88,7 +88,7 @@ public class VirtualPetTest {
 	
 	@Test
 	public void checkThatAllValuesIncreaseUponTick() {
-		underTest.tick();
+		underTest.tick(null);
 		int hunger = underTest.getHungerLevel();
 		int thirst = underTest.getThirstLevel();
 		int boredom = underTest.getBoredom();
@@ -116,15 +116,15 @@ public class VirtualPetTest {
 	
 	@Test
 	public void checkThat1TickPassedInGame() {
-		underTest.tick();
+		underTest.tick("");
 		int ticks = underTest.getTicksPassed();
 		assertThat(ticks, is(1));
 	}
 	
 	@Test
 	public void checkThat2TickPassedInGameForEeyore() {
-		testEeyore.tick();
-		testEeyore.tick();
+		testEeyore.tick("");
+		testEeyore.tick("");
 		int ticks = testEeyore.getTicksPassed();
 		assertThat(ticks, is(2));
 	}

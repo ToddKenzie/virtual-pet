@@ -8,15 +8,15 @@ public abstract class VirtualPet {
 	protected int sickness;
 	protected int ticksPassed;
 	
-	protected int foodValue = 15;
-	protected int waterValue = 10;
-	protected int playValue = 10;
-	protected int vetValue = 20;
+	protected int foodValue;
+	protected int waterValue;
+	protected int playValue;
+	protected int vetValue;
 	
-	protected int hungerIncreasePerTickMax = 10;
-	protected int thirstIncreasePerTickMax = 10;
-	protected int boredomIncreasePerTickMax = 10;
-	protected int sicknessIncreasePerTickMax = 10;
+	protected int hungerIncreasePerTickMax;
+	protected int thirstIncreasePerTickMax;
+	protected int boredomIncreasePerTickMax;
+	protected int sicknessIncreasePerTickMax;
 			
 
 	public int getHungerLevel() {
@@ -81,13 +81,39 @@ public abstract class VirtualPet {
 		}
 	}
 
-	public void tick() {
-		hunger += (int) (Math.random() * hungerIncreasePerTickMax + 1);
-		thirst += (int) (Math.random() * thirstIncreasePerTickMax + 1);
-		boredom += (int) (Math.random() * boredomIncreasePerTickMax + 1);
-		sickness += (int) (Math.random() * sicknessIncreasePerTickMax + 1);
+	public void tick(String previousAction) {
+		addHunger(previousAction);
+		addThirst(previousAction);
+		addBoredom(previousAction);
+		addSickness(previousAction);
 		ticksPassed++;
 	}
+
+	private void addHunger(String previousAction) {
+		if (!previousAction.equals("feed")) {
+			hunger += (int) (Math.random() * hungerIncreasePerTickMax + 1);
+		}
+	}
+	
+	private void addThirst(String previousAction) {
+		if(!previousAction.equals("giveWater")) {
+			thirst += (int) (Math.random() * thirstIncreasePerTickMax + 1);
+		}
+	}
+	
+	private void addBoredom(String previousAction) {
+		if (!previousAction.equals("play")) {
+			boredom += (int) (Math.random() * boredomIncreasePerTickMax + 1);
+		}
+	}
+	
+	private void addSickness(String previousAction) {
+		if (!previousAction.equals("takeToVirtualVet")) {
+			sickness += (int) (Math.random() * sicknessIncreasePerTickMax + 1);
+		}
+	}
+	
+	
 
 
 

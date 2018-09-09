@@ -14,10 +14,10 @@ public class VirtualSimplePet extends VirtualPet{
 		playValue = 10;
 		vetValue = 20;
 		
-		hungerIncreasePerTickMax = 5;
-		thirstIncreasePerTickMax = 5;
-		boredomIncreasePerTickMax = 5;
-		sicknessIncreasePerTickMax = 5;
+		hungerIncreasePerTickMax = 6;
+		thirstIncreasePerTickMax = 6;
+		boredomIncreasePerTickMax = 6;
+		sicknessIncreasePerTickMax = 7;
 		
 	}
 }
