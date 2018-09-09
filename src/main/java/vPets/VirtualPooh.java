@@ -8,7 +8,7 @@ public class VirtualPooh extends VirtualPet {
 		boredom = 10;
 		sickness = 15;
 	
-		foodValue = 7;
+		foodValue = 10;
 		waterValue = 5;
 		playValue = 10;
 		vetValue = 15;
@@ -20,7 +20,7 @@ public class VirtualPooh extends VirtualPet {
 	}
 	
 	public String displayPet() {
-		String display = " _( )_\n (     (o___\n  |      _ 7\n";
+		String display = "  _( )_\n (     (o___\n  |      _ 7\n";
 		display += "   \\    (\")\n   /     \\ \\ \n  |    \\ __/\n";
 		display += "  |        |\n  (       /\n   \\     /\n";
 		display += "    )   /(_\n    |  (___)\n     \\___)";

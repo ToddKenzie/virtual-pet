@@ -6,6 +6,8 @@ import vPets.*;
 
 public class VirtualPetApp {
 
+	static VirtualPet virtualPet;
+
 	public static void main(String[] args) {
 
 		Scanner input = new Scanner(System.in);
@@ -16,24 +18,23 @@ public class VirtualPetApp {
 		System.out.println("Enter \'Pooh\' for a PoohBear pet");
 		System.out.println("Enter \'Eeyore\' for an EeyoreDonkey pet");
 		System.out.println("Enter \'Piglet\' for a PigletPig pet");
-		System.out.println("Or just \'simple\' for a Simple pet:");
+		System.out.println("Any other value with give you a Simple pet:");
 
 		String petChoice = input.nextLine();
-		// TO-DO: need to verify Pet Choice is valid here
-		VirtualPet virtualPet = vPetStore.purchasePet(petChoice);
+		virtualPet = vPetStore.purchasePet(petChoice);
 
 		System.out.println("Thanks for choosing your new pet.");
 		System.out.println(virtualPet.displayPet());
-		System.out.println("Pets are happier when they have low stats. They are unhappy with high stats.");
-		System.out.println("If their stats get too high, they may leave you, or worse!\n");
+		System.out.println("Please take care of them.  If you don't, they may decide to leave you.");
 
-		while (true) {
+		boolean isStillPlaying = true;
+		while (isStillPlaying) {
 
 			System.out.println("Current Pet Stats:");
-			System.out.println("Hunger: " + virtualPet.getHungerLevel());
-			System.out.println("Thirst: " + virtualPet.getThirstLevel());
-			System.out.println("Boredom: " + virtualPet.getBoredom());
-			System.out.println("Sickness: " + virtualPet.getSickness() + "\n");
+			System.out.println("Hunger: " + displayHungerLevel());
+			System.out.println("Thirst: " + displayThirstLevel());
+			System.out.println("Disposition: " + displayBoredomLevel());
+			System.out.println("Health: " + displaySicknessLevel() + "\n");
 
 			System.out.println("What would you like to do with your pet?");
 			System.out.println("Press 1 to fed your pet.");
@@ -41,6 +42,7 @@ public class VirtualPetApp {
 			System.out.println("Press 3 to play with your pet.");
 			System.out.println("Press 4 to bring your pet to the Virtual Vet.");
 			System.out.println("Press 5 to look at your pet again.");
+			System.out.println("Press I to ignore your pet.");
 			System.out.println("Press Q to quit.");
 
 			String menuChoice = input.nextLine();
@@ -63,22 +65,106 @@ public class VirtualPetApp {
 				previousAction = "takeToVirtualVet";
 			} else if (menuChoice.equals("5")) {
 				System.out.println(virtualPet.displayPet());
+			} else if (menuChoice.equalsIgnoreCase("I")) {
+				System.out.println("Why would you do that to your pet???");
+				previousAction = "ignored";
 			} else if (menuChoice.equalsIgnoreCase("Q")) {
 				System.out.println("We're sorry to see you go");
-				System.out.println("You had your pet for " + virtualPet.getTicksPassed() + " virtual days.");
-				input.close();
-				System.exit(0);
+				isStillPlaying = false;
 			} else {
 				System.out.println("That was an invalid command");
+			}
+
+			if (isAnyStatOver50()) {
+				System.out.println("\nYou couldn't take care of your pet.  They decided to leave you.");
+				previousAction = "";
+				isStillPlaying = false;
 			}
 
 			if (!previousAction.equals("")) {
 				System.out.println("Time passes");
 				virtualPet.tick(previousAction);
 			}
-			
+
 		}
 
+		input.close();
+		System.out.println("You had your pet for " + virtualPet.getTicksPassed() + " virtual days.");
+
+	}
+
+	public static boolean isAnyStatOver50() {
+		return (virtualPet.getHunger() > 50 || virtualPet.getThirst() > 50 || virtualPet.getBoredom() > 50
+				|| virtualPet.getSickness() > 50);
+
+	}
+
+	public static String displayHungerLevel() {
+		int hunger = virtualPet.getHunger();
+		if (hunger < 8) {
+			return "Well Fed";
+		} else if (hunger < 16) {
+			return "Fed";
+		} else if (hunger < 24) {
+			return "Ok";
+		} else if (hunger < 32) {
+			return "Hungry";
+		} else if (hunger < 40) {
+			return "Starving";
+		} else {
+			return "Ravenous";
+		}
+	}
+
+	public static String displayThirstLevel() {
+		int thirst = virtualPet.getThirst();
+		if (thirst < 8) {
+			return "Quenched";
+		} else if (thirst < 16) {
+			return "Satisfied";
+		} else if (thirst < 24) {
+			return "Ok";
+		} else if (thirst < 32) {
+			return "Parched";
+		} else if (thirst < 40) {
+			return "Thirsty";
+		} else {
+			return "Dehydrated";
+		}
+	}
+
+	public static String displayBoredomLevel() {
+		int boredom = virtualPet.getBoredom();
+		if (boredom < 8) {
+			return "Entertained";
+		} else if (boredom < 16) {
+			return "Interested";
+		} else if (boredom < 24) {
+			return "Ok";
+		} else if (boredom < 32) {
+			return "Disinterested";
+		} else if (boredom < 40) {
+			return "Blas\u00E9";
+		} else {
+			return "Spiritless";
+		}
+	}
+
+	public static String displaySicknessLevel() {
+		int sickness = virtualPet.getSickness();
+		if (sickness < 8) {
+			return "Great Health";
+		} else if (sickness < 16) {
+			return "Healthy";
+		} else if (sickness < 24) {
+			return "Ok";
+		} else if (sickness < 32) {
+			return "Ailing";
+		} else if (sickness < 40) {
+			return "Afflicted";
+		} else {
+			return "Debilitated";
+		}
 	}
 
 }

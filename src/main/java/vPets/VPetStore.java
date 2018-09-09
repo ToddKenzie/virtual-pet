@@ -11,7 +11,7 @@ public class VPetStore {
 			newPet = new VirtualPooh();
 		} else if (petToPurchase.equalsIgnoreCase("piglet")) {
 			newPet = new VirtualPiglet();
-		} else if (petToPurchase.equalsIgnoreCase("simple")) {
+		} else {
 			newPet = new VirtualSimplePet();
 		}
 		

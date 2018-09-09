@@ -9,7 +9,7 @@ public class VirtualEeyore extends VirtualPet {
 		sickness = 20;
 	
 		foodValue = 10;
-		waterValue = 8;
+		waterValue = 10;
 		playValue = 7;
 		vetValue = 15;
 		

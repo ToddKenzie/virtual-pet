@@ -19,11 +19,11 @@ public abstract class VirtualPet {
 	protected int sicknessIncreasePerTickMax;
 			
 
-	public int getHungerLevel() {
+	public int getHunger() {
 		return hunger;
 	}
 
-	public int getThirstLevel() {
+	public int getThirst() {
 		return thirst;
 	}
 	

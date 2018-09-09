@@ -19,7 +19,7 @@ public class VirtualPetTest {
 	@Test
 	public void decreasePetHungerLevelfrom25To10() {
 		underTest.feed();
-		int hunger = underTest.getHungerLevel();
+		int hunger = underTest.getHunger();
 		assertThat(hunger, is(10));
 	}
 	
@@ -27,14 +27,14 @@ public class VirtualPetTest {
 	public void decreasePetHungerLevelfrom25To0After2Feeds() {
 		underTest.feed();
 		underTest.feed();
-		int hunger = underTest.getHungerLevel();
+		int hunger = underTest.getHunger();
 		assertThat(hunger, is(0));
 	}
 	
 	@Test
 	public void decreasePetThirstLevelfrom25to15WithGiveWater() {
 		underTest.giveWater();
-		int thirst = underTest.getThirstLevel();
+		int thirst = underTest.getThirst();
 		assertThat(thirst, is(15));
 	}
 	
@@ -42,7 +42,7 @@ public class VirtualPetTest {
 	public void decreasePetThirstLevelfrom25to5With2GiveWater() {
 		underTest.giveWater();
 		underTest.giveWater();
-		int thirst = underTest.getThirstLevel();
+		int thirst = underTest.getThirst();
 		assertThat(thirst, is(5));
 	}
 	
@@ -51,7 +51,7 @@ public class VirtualPetTest {
 		underTest.giveWater();
 		underTest.giveWater();
 		underTest.giveWater();
-		int thirst = underTest.getThirstLevel();
+		int thirst = underTest.getThirst();
 		assertThat(thirst, is(0));
 	}
 	
@@ -89,8 +89,8 @@ public class VirtualPetTest {
 	@Test
 	public void checkThatAllValuesIncreaseUponTick() {
 		underTest.tick(null);
-		int hunger = underTest.getHungerLevel();
-		int thirst = underTest.getThirstLevel();
+		int hunger = underTest.getHunger();
+		int thirst = underTest.getThirst();
 		int boredom = underTest.getBoredom();
 		int sickness = underTest.getSickness();
 
@@ -103,7 +103,7 @@ public class VirtualPetTest {
 	@Test
 	public void decreaseEeyoreHungerFrom15To10withFeed() {
 		testEeyore.feed();
-		int hunger = testEeyore.getHungerLevel();
+		int hunger = testEeyore.getHunger();
 		assertThat(hunger, is(10));
 	}
 	

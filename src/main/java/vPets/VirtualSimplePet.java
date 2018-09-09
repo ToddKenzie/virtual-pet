@@ -5,19 +5,19 @@ public class VirtualSimplePet extends VirtualPet{
 	private int petToDisplay;
 	
 	public VirtualSimplePet() {
-		hunger = 25;
-		thirst = 25;
-		boredom = 25;
-		sickness = 25;
+		hunger = 20;
+		thirst = 20;
+		boredom = 20;
+		sickness = 20;
 		
-		foodValue = 15;
+		foodValue = 10;
 		waterValue = 10;
 		playValue = 10;
 		vetValue = 20;
 		
-		hungerIncreasePerTickMax = 6;
-		thirstIncreasePerTickMax = 6;
-		boredomIncreasePerTickMax = 6;
+		hungerIncreasePerTickMax = 7;
+		thirstIncreasePerTickMax = 7;
+		boredomIncreasePerTickMax = 7;
 		sicknessIncreasePerTickMax = 7;
 		
 		petToDisplay = (int) (Math.random() * 3 + 1);
