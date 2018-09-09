@@ -3,7 +3,7 @@ package vPets;
 public class VirtualPooh extends VirtualPet {
 
 	public VirtualPooh() {
-		hunger = 40;
+		hunger = 35;
 		thirst = 20;
 		boredom = 10;
 		sickness = 15;
