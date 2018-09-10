@@ -2,8 +2,7 @@ package vPets;
 
 public class VirtualPiglet extends VirtualPet {
 
-	
-	public VirtualPiglet() {
+	protected VirtualPiglet() {
 		hunger = 20;
 		thirst = 20;
 		boredom = 20;

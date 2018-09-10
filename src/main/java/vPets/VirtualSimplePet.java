@@ -4,7 +4,7 @@ public class VirtualSimplePet extends VirtualPet{
 
 	private int petToDisplay;
 	
-	public VirtualSimplePet() {
+	protected VirtualSimplePet() {
 		hunger = 20;
 		thirst = 20;
 		boredom = 20;

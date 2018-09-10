@@ -40,7 +40,7 @@ public abstract class VirtualPet {
 	}
 	
 	
-	public VirtualPet() {
+	protected VirtualPet() {
 		this.hunger = 25;
 		this.thirst = 25;
 		this.boredom = 25;

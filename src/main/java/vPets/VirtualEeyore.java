@@ -2,7 +2,7 @@ package vPets;
 
 public class VirtualEeyore extends VirtualPet {
 	
-	public VirtualEeyore() {
+	protected VirtualEeyore() {
 		hunger = 15;
 		thirst = 20;
 		boredom = 40;

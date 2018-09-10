@@ -17,14 +17,14 @@ public class VirtualPetTest {
 	
 	
 	@Test
-	public void decreasePetHungerLevelfrom25To10() {
+	public void decreasePetHungerLevelfrom20To10() {
 		underTest.feed();
 		int hunger = underTest.getHunger();
 		assertThat(hunger, is(10));
 	}
 	
 	@Test
-	public void decreasePetHungerLevelfrom25To0After2Feeds() {
+	public void decreasePetHungerLevelfrom20To0After0Feeds() {
 		underTest.feed();
 		underTest.feed();
 		int hunger = underTest.getHunger();
@@ -32,22 +32,22 @@ public class VirtualPetTest {
 	}
 	
 	@Test
-	public void decreasePetThirstLevelfrom25to15WithGiveWater() {
+	public void decreasePetThirstLevelfrom20to10WithGiveWater() {
 		underTest.giveWater();
 		int thirst = underTest.getThirst();
-		assertThat(thirst, is(15));
+		assertThat(thirst, is(10));
 	}
 	
 	@Test
-	public void decreasePetThirstLevelfrom25to5With2GiveWater() {
+	public void decreasePetThirstLevelfrom20to0With2GiveWater() {
 		underTest.giveWater();
 		underTest.giveWater();
 		int thirst = underTest.getThirst();
-		assertThat(thirst, is(5));
+		assertThat(thirst, is(0));
 	}
 	
 	@Test
-	public void decreasePetThirstLevelfrom25to0With3GiveWater() {
+	public void decreasePetThirstLevelfrom20to0With3GiveWater() {
 		underTest.giveWater();
 		underTest.giveWater();
 		underTest.giveWater();
@@ -56,14 +56,14 @@ public class VirtualPetTest {
 	}
 	
 	@Test
-	public void descreasePetBoredomfrom25to15WithPlay() {
+	public void descreasePetBoredomfrom20to10WithPlay() {
 		underTest.play();
 		int boredom = underTest.getBoredom();
-		assertThat(boredom, is(15));
+		assertThat(boredom, is(10));
 	}
 
 	@Test
-	public void descreasePetBoredomfrom25to0With3Play() {
+	public void descreasePetBoredomfrom20to0With3Play() {
 		underTest.play();
 		underTest.play();
 		underTest.play();
@@ -72,14 +72,14 @@ public class VirtualPetTest {
 	}
 	
 	@Test
-	public void descreasePetSicknessfrom25to5WithTakeToVirtualVet() {
+	public void descreasePetSicknessfrom20to0WithTakeToVirtualVet() {
 		underTest.takeToVirtualVet();
 		int sickness = underTest.getSickness();
-		assertThat(sickness, is(5));
+		assertThat(sickness, is(0));
 	}
 	
 	@Test
-	public void descreasePetSicknessfrom25to0With2TakeToVirtualVet() {
+	public void descreasePetSicknessfrom20to0With2TakeToVirtualVet() {
 		underTest.takeToVirtualVet();
 		underTest.takeToVirtualVet();
 		int sickness = underTest.getSickness();
@@ -88,23 +88,23 @@ public class VirtualPetTest {
 	
 	@Test
 	public void checkThatAllValuesIncreaseUponTick() {
-		underTest.tick(null);
+		underTest.tick("");
 		int hunger = underTest.getHunger();
 		int thirst = underTest.getThirst();
 		int boredom = underTest.getBoredom();
 		int sickness = underTest.getSickness();
 
-		assertTrue(hunger > 25);
-		assertTrue(thirst > 25);
-		assertTrue(boredom > 25);
-		assertTrue(sickness > 25);
+		assertTrue(hunger > 20);
+		assertTrue(thirst > 20);
+		assertTrue(boredom > 20);
+		assertTrue(sickness > 20);
 	}
 	
 	@Test
-	public void decreaseEeyoreHungerFrom15To10withFeed() {
+	public void decreaseEeyoreHungerFrom15To5withFeed() {
 		testEeyore.feed();
 		int hunger = testEeyore.getHunger();
-		assertThat(hunger, is(10));
+		assertThat(hunger, is(5));
 	}
 	
 	@Test
