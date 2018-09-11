@@ -14,7 +14,7 @@ public class VirtualPetApp {
 		VPetStore vPetStore = new VPetStore();
 
 		System.out.println("   ___    Welcome to the Virtual Pet Store!");
-		System.out.println("  /   \\   We have a variety of pets for you");
+		System.out.println("  /   \\   We have a variety of pets for you!");
 		System.out.println(" /_____\\  Enter \'Pooh\' for a PoohBear pet");
 		System.out.println(" |  _  |  Enter \'Eeyore\' for an EeyoreDonkey pet");
 		System.out.println(" | | | |  Enter \'Piglet\' for a PigletPig pet");
@@ -38,7 +38,7 @@ public class VirtualPetApp {
 			System.out.println("Health: " + displaySicknessLevel() + "\n");
 
 			System.out.println("What would you like to do with your pet?");
-			System.out.println("Press 1 to fed your pet.");
+			System.out.println("Press 1 to feed your pet.");
 			System.out.println("Press 2 to give your pet water.");
 			System.out.println("Press 3 to play with your pet.");
 			System.out.println("Press 4 to bring your pet to the Virtual Vet.");
